@@ -9,6 +9,7 @@
         "02797f1ec",
         "0839ef72-b861-40e5-9419-db5d51d376a9",
         "0839ef72-b861-40e5-9419-db5d51d376a9@6c48a",
+        "0922bff5-5f16-4c43-85e4-ff475838d63f",
         "12c4aefd-d4fc-4b6b-9b26-9692a2b4bb66",
         "12c4aefd-d4fc-4b6b-9b26-9692a2b4bb66@6c48a",
         "145f5ad2-89bc-4420-8d19-0d450dbbcf0d",
@@ -25,6 +26,7 @@
         "299927e2-32f9-416c-a449-2168014a88d8",
         "362f70ea-2887-4f0e-9c2c-6a263c12d918",
         "362f70ea-2887-4f0e-9c2c-6a263c12d918@6c48a",
+        "3bb05489-017d-4a10-9fa8-b64b61dffa2e",
         "3c3f0395-3069-4633-9834-07d83bf59d98",
         "3c3f0395-3069-4633-9834-07d83bf59d98@6c48a",
         "40791570-59ae-4482-bd97-cd017820d29e",
@@ -39,8 +41,10 @@
         "545f7619-01ce-4f61-8840-f937ddb5d811@6c48a",
         "60b453c8-d538-4b90-901e-8783870c2931",
         "60b453c8-d538-4b90-901e-8783870c2931@6c48a",
+        "66ad24c3-d452-48ae-9183-33ec566ea068",
         "66ebd2cb-c1a9-4faa-8fdf-7ccd16e58839",
         "66ebd2cb-c1a9-4faa-8fdf-7ccd16e58839@6c48a",
+        "6907a27b-ba8c-440c-bc96-0e141f3a05c2",
         "74932d33-4283-431c-af15-76abd2bfd045",
         "74932d33-4283-431c-af15-76abd2bfd045@6c48a",
         "7f988760-2f26-453e-a91e-131f2034b01a",
@@ -59,6 +63,7 @@
         "a3c68868-3bb4-411e-84e1-1735209e9d0b@6c48a",
         "a61fc0eb-41cd-43ad-8c8a-74c04fc29095",
         "a61fc0eb-41cd-43ad-8c8a-74c04fc29095@6c48a",
+        "b190b3dd-37ff-4870-bce8-f7dbf434ced0",
         "b2e3abf5-a608-4616-84ad-9bd71de34ffe",
         "b2e3abf5-a608-4616-84ad-9bd71de34ffe@6c48a",
         "b8ac2085-fb56-4ab5-9e16-9dfa9db9ae07",
@@ -258,6 +263,31 @@
         "545f7619-01ce-4f61-8840-f937ddb5d811@6c48a": [
             "art/rooftop/texture",
             "cc.Texture2D",
+            1
+        ],
+        "3bb05489-017d-4a10-9fa8-b64b61dffa2e": [
+            "fonts/LICENSES-ark-pixel-OFL",
+            "cc.TextAsset",
+            1
+        ],
+        "6907a27b-ba8c-440c-bc96-0e141f3a05c2": [
+            "fonts/LICENSES-cubic-11-OFL",
+            "cc.TextAsset",
+            1
+        ],
+        "0922bff5-5f16-4c43-85e4-ff475838d63f": [
+            "fonts/LICENSES-galmuri-LICENSE",
+            "cc.TextAsset",
+            1
+        ],
+        "b190b3dd-37ff-4870-bce8-f7dbf434ced0": [
+            "fonts/OFL",
+            "cc.TextAsset",
+            1
+        ],
+        "66ad24c3-d452-48ae-9183-33ec566ea068": [
+            "fonts/hacker-pixel",
+            "cc.TTFFont",
             1
         ],
         "bcefdff0-fc70-4f4f-bcea-c61f8121aa8b": [

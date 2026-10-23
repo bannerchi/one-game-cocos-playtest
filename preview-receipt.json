@@ -1,6 +1,9 @@
 {
   "source": "Cocos Creator web-mobile compiled preview",
-  "revision": "phone-2026-10-23",
+  "revision": "typography-2026-10-23",
+  "generated_at_utc": "2026-10-23T05:13:06.205937+00:00",
+  "runtime_files": 121,
+  "excluded_source_maps": 11,
   "files": [
     {
       "path": "application.js",
@@ -44,13 +47,13 @@
     },
     {
       "path": "assets/main/index.js",
-      "size": 58763,
-      "sha256": "153426a7baf037eca63ee0210f23588bad6ea3de7b3ad074c81c9f07424cdf13"
+      "size": 59421,
+      "sha256": "945351ce9fd99f643323f03e9c17568d0ea8d112588cfb4f89ae5e699ae206dd"
     },
     {
       "path": "assets/resources/config.json",
-      "size": 18857,
-      "sha256": "e237ea012de3d4ce3e9c4de5ec23aeb832ede239aec1ae9bc90263d41e12cdac"
+      "size": 19802,
+      "sha256": "11a46f7df31d00d735ee5c03e92aec615ea61aa836c7db0e2ceea22135a272bf"
     },
     {
       "path": "assets/resources/import/00/00cbc220-9170-4367-9953-86cd4030e578.json",
@@ -66,6 +69,11 @@
       "path": "assets/resources/import/08/0839ef72-b861-40e5-9419-db5d51d376a9.json",
       "size": 72,
       "sha256": "60928632edcd22b5694a8c22de01de0d2cbb6f374103242a99a4394cc767f44d"
+    },
+    {
+      "path": "assets/resources/import/09/0922bff5-5f16-4c43-85e4-ff475838d63f.json",
+      "size": 4572,
+      "sha256": "e40becee6cf70cde6a3b2d0a517dd110121935f1b668f5348414cd66e165016f"
     },
     {
       "path": "assets/resources/import/12/12c4aefd-d4fc-4b6b-9b26-9692a2b4bb66.json",
@@ -113,6 +121,11 @@
       "sha256": "60928632edcd22b5694a8c22de01de0d2cbb6f374103242a99a4394cc767f44d"
     },
     {
+      "path": "assets/resources/import/3b/3bb05489-017d-4a10-9fa8-b64b61dffa2e.json",
+      "size": 4625,
+      "sha256": "e44966e7d3563f27f14b31ea1855e5d24f6d693e3516d192c245d9cdfadd2864"
+    },
+    {
       "path": "assets/resources/import/3c/3c3f0395-3069-4633-9834-07d83bf59d98.json",
       "size": 72,
       "sha256": "60928632edcd22b5694a8c22de01de0d2cbb6f374103242a99a4394cc767f44d"
@@ -148,9 +161,19 @@
       "sha256": "60928632edcd22b5694a8c22de01de0d2cbb6f374103242a99a4394cc767f44d"
     },
     {
+      "path": "assets/resources/import/66/66ad24c3-d452-48ae-9183-33ec566ea068.json",
+      "size": 115,
+      "sha256": "aa0072884c2b4b713e5ae4bf25c4f866d6f986a5af8c1cfe94e613537f51ed84"
+    },
+    {
       "path": "assets/resources/import/66/66ebd2cb-c1a9-4faa-8fdf-7ccd16e58839.json",
       "size": 72,
       "sha256": "60928632edcd22b5694a8c22de01de0d2cbb6f374103242a99a4394cc767f44d"
+    },
+    {
+      "path": "assets/resources/import/69/6907a27b-ba8c-440c-bc96-0e141f3a05c2.json",
+      "size": 5592,
+      "sha256": "6d032d9c97d36958260c6342e888a590d8ee884f003a2bedc60623d83e6e16b3"
     },
     {
       "path": "assets/resources/import/74/74932d33-4283-431c-af15-76abd2bfd045.json",
@@ -196,6 +219,11 @@
       "path": "assets/resources/import/a6/a61fc0eb-41cd-43ad-8c8a-74c04fc29095.json",
       "size": 72,
       "sha256": "60928632edcd22b5694a8c22de01de0d2cbb6f374103242a99a4394cc767f44d"
+    },
+    {
+      "path": "assets/resources/import/b1/b190b3dd-37ff-4870-bce8-f7dbf434ced0.json",
+      "size": 4612,
+      "sha256": "840858365eb4bb5c986b2e4fe2c42e06d76b63d0e2df839c1670a743f2d37948"
     },
     {
       "path": "assets/resources/import/b2/b2e3abf5-a608-4616-84ad-9bd71de34ffe.json",
@@ -366,6 +394,11 @@
       "path": "assets/resources/native/60/60b453c8-d538-4b90-901e-8783870c2931.png",
       "size": 25402,
       "sha256": "c22242dbf486580ce729bc3c0b203757649ee0f51f65c3a3601951d90510d0d9"
+    },
+    {
+      "path": "assets/resources/native/66/66ad24c3-d452-48ae-9183-33ec566ea068/hacker-pixel.ttf",
+      "size": 139184,
+      "sha256": "2985561d2bb484289db467316571fc9e86e9c1fc4d856b3a0d17e1f026447012"
     },
     {
       "path": "assets/resources/native/66/66ebd2cb-c1a9-4faa-8fdf-7ccd16e58839.png",
@@ -541,6 +574,31 @@
       "path": "index.js",
       "size": 818,
       "sha256": "4317cb547b4d105f69346b925d961df7f951002fd5a4aaae807a361aa1ad49cd"
+    },
+    {
+      "path": "licenses/FONT-NOTICE.txt",
+      "size": 426,
+      "sha256": "8f5e7712cdc84448cfedd25007fcf002661485ad90cf39b092d4695308630f57"
+    },
+    {
+      "path": "licenses/LICENSES-ark-pixel-OFL.txt",
+      "size": 4412,
+      "sha256": "3ab41567e68e3988ba1ef16dd2644eca95ca5648ea12e7d46e6287fc0bbe5aee"
+    },
+    {
+      "path": "licenses/LICENSES-cubic-11-OFL.txt",
+      "size": 5364,
+      "sha256": "2b6e5938e5cffa0b9e183bd05f8c363e174e7ebed1a0556e2855fd1707fa2188"
+    },
+    {
+      "path": "licenses/LICENSES-galmuri-LICENSE.txt",
+      "size": 4360,
+      "sha256": "86a3ee9495f942f0243f18c103da9faca27adb88142613edb8bb852e56c892c1"
+    },
+    {
+      "path": "licenses/OFL.txt",
+      "size": 4418,
+      "sha256": "bc518cf64b8032c07690f33cc270c35c179255a6ac8efa7c165ebae7e8f76a63"
     },
     {
       "path": "src/chunks/bundle.js",

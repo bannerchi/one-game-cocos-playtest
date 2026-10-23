@@ -282,7 +282,7 @@ System.register("chunks:///_virtual/onet.ts", ['./rollupPluginModLoBabelHelpers.
 });
 
 System.register("chunks:///_virtual/PrototypeApp.ts", ['./rollupPluginModLoBabelHelpers.js', 'cc', './sokoban.ts', './onet.ts', './memory.ts', './stack.ts'], function (exports) {
-  var _inheritsLoose, cclegacy, _decorator, profiler, Node, UITransform, AudioSource, input, Input, game, Game, resources, ImageAsset, Texture2D, SpriteFrame, Graphics, Color, Label, Sprite, UIOpacity, Vec3, tween, KeyCode, AudioClip, Component, SOKOBAN_LEVELS, createSokoban, isSokobanWon, moveSokoban, createOnet, getOnetHint, reshuffleOnet, removeOnetPair, createMemory, advanceStack, createStack, dropStack;
+  var _inheritsLoose, cclegacy, _decorator, profiler, Node, UITransform, AudioSource, input, Input, game, Game, resources, Font, ImageAsset, Texture2D, SpriteFrame, Graphics, Color, Label, Sprite, UIOpacity, Vec3, tween, KeyCode, AudioClip, Component, SOKOBAN_LEVELS, createSokoban, isSokobanWon, moveSokoban, createOnet, getOnetHint, reshuffleOnet, removeOnetPair, createMemory, advanceStack, createStack, dropStack;
   return {
     setters: [function (module) {
       _inheritsLoose = module.inheritsLoose;
@@ -298,6 +298,7 @@ System.register("chunks:///_virtual/PrototypeApp.ts", ['./rollupPluginModLoBabel
       game = module.game;
       Game = module.Game;
       resources = module.resources;
+      Font = module.Font;
       ImageAsset = module.ImageAsset;
       Texture2D = module.Texture2D;
       SpriteFrame = module.SpriteFrame;
@@ -369,6 +370,7 @@ System.register("chunks:///_virtual/PrototypeApp.ts", ['./rollupPluginModLoBabel
           }
           _this = _Component.call.apply(_Component, [this].concat(args)) || this;
           _this.stage = void 0;
+          _this.uiFont = null;
           _this.frames = new Map();
           _this.sounds = new Map();
           _this.audio = void 0;
@@ -421,7 +423,15 @@ System.register("chunks:///_virtual/PrototypeApp.ts", ['./rollupPluginModLoBabel
           }, function (_, i) {
             return "prop-" + String(i).padStart(2, '0');
           }));
-          Promise.all(names.map(function (name) {
+          var fontReady = new Promise(function (resolve, reject) {
+            resources.load('fonts/hacker-pixel', Font, function (error, font) {
+              if (error) reject(error);else {
+                _this2.uiFont = font;
+                resolve();
+              }
+            });
+          });
+          Promise.all([fontReady].concat(names.map(function (name) {
             return new Promise(function (resolve, reject) {
               resources.load("art/hacker-v2/" + name, ImageAsset, function (error, asset) {
                 if (error) reject(error);else {
@@ -439,7 +449,7 @@ System.register("chunks:///_virtual/PrototypeApp.ts", ['./rollupPluginModLoBabel
                 }
               });
             });
-          })).then(function () {
+          }))).then(function () {
             if (_this2.isValid) _this2.render();
           })["catch"](function (error) {
             console.error('Prototype art could not load', error);
@@ -527,14 +537,17 @@ System.register("chunks:///_virtual/PrototypeApp.ts", ['./rollupPluginModLoBabel
           }
           var node = this.make(s, x, y, w, h);
           var label = node.addComponent(Label);
+          if (this.uiFont) label.font = this.uiFont;else label.fontFamily = 'monospace';
           label.string = s;
           label.fontSize = size;
-          label.lineHeight = size + 7;
+          label.lineHeight = Math.round(size * 1.25);
           label.color = color(ink);
           label.horizontalAlign = center ? Label.HorizontalAlign.CENTER : Label.HorizontalAlign.LEFT;
           label.verticalAlign = Label.VerticalAlign.CENTER;
           label.overflow = Label.Overflow.SHRINK;
           label.enableWrapText = true;
+          // Assigning a Font can resize the Label before its overflow mode is set.
+          node.getComponent(UITransform).setContentSize(w, h);
           return label;
         };
         _proto.image = function image(name, x, y, w, h, alpha) {
@@ -571,7 +584,7 @@ System.register("chunks:///_virtual/PrototypeApp.ts", ['./rollupPluginModLoBabel
           var width = Math.max(w, 70),
             height = Math.max(h, 70);
           var node = this.image(accent ? 'ui-primary' : 'ui-button', x - (width - w) / 2, y - (height - h) / 2, width, height);
-          this.text(s, x + 6, y, w - 12, h, 20, accent || C.ink, true);
+          this.text(s, x + 6, y, w - 12, h, 22, accent || C.ink, true);
           this.listen(node, function () {
             _this3.beep('tap');
             fn();
@@ -618,11 +631,11 @@ System.register("chunks:///_virtual/PrototypeApp.ts", ['./rollupPluginModLoBabel
           var _this4 = this;
           this.image('rooftop', 0, -250, 480, 720);
           this.panel(0, 0, 480, 152, C.bg, undefined, 0).addComponent(UIOpacity).opacity = 228;
-          this.text('CYBER HEIST   /   SANDBOX 04', 26, 22, 428, 26, 13, C.mint);
-          this.text('黑客训练场', 26, 57, 420, 58, 37);
+          this.text('CYBER HEIST   /   SANDBOX 04', 26, 22, 428, 26, 16, C.mint);
+          this.text('黑客训练场', 26, 57, 420, 58, 36);
           this.text('潜入节点之前，先热身。', 28, 115, 420, 30, 18, C.muted);
           this.panel(25, 345, 217, 33, C.bg).addComponent(UIOpacity).opacity = 235;
-          this.text('● 节点就绪 / 04 任务', 35, 345, 199, 33, 17, C.mint);
+          this.text('● 节点就绪 / 04 任务', 35, 345, 199, 33, 18, C.mint);
           this.panel(0, 402, 480, 498, C.bg, undefined, 0);
           var cards = [{
             mode: 'sokoban',
@@ -650,7 +663,7 @@ System.register("chunks:///_virtual/PrototypeApp.ts", ['./rollupPluginModLoBabel
               y = 423 + Math.floor(i / 2) * 174;
             var node = _this4.image('ui-panel', x, y, 210, 159);
             _this4.prop(card.icon, x + 13, y + 10, 65);
-            _this4.text("0" + (i + 1), x + 153, y + 17, 39, 32, 19, card.tint, true);
+            _this4.text("0" + (i + 1), x + 153, y + 17, 39, 32, 20, card.tint, true);
             _this4.text(TITLES[card.mode], x + 24, y + 80, 162, 32, 24);
             _this4.text(card.subtitle, x + 24, y + 115, 162, 28, 18, C.muted);
             _this4.listen(node, function () {
@@ -713,23 +726,23 @@ System.register("chunks:///_virtual/PrototypeApp.ts", ['./rollupPluginModLoBabel
         };
         _proto.header = function header() {
           var _this5 = this;
-          this.button('‹ 返回', 20, 21, 91, 46, function () {
+          this.button('← 返回', 20, 21, 91, 46, function () {
             return _this5.home();
           });
-          this.text('CYBER HEIST / TRAINING', 118, 24, 245, 40, 13, C.mint, true);
+          this.text('CYBER HEIST / TRAINING', 118, 24, 245, 40, 16, C.mint, true);
           this.button(this.muted ? '静音' : '音效', 372, 21, 87, 46, function () {
             _this5.muted = !_this5.muted;
             _this5.render();
           });
-          this.text(TITLES[this.mode], 27, 91, 426, 49, 31);
+          this.text(TITLES[this.mode], 27, 91, 426, 49, 30);
         };
         _proto.renderSokoban = function renderSokoban() {
           var _this6 = this;
           var s = this.sokoban;
-          this.text('把能量箱推到发光底座。箱子只能推，不能拉。', 28, 145, 424, 54, 20, C.muted);
+          this.text('把能量箱推到发光底座。\n箱子只能推，不能拉。', 28, 145, 424, 54, 20, C.muted);
           this.image('ui-panel', 26, 207, 428, 62);
-          this.text("\u5173\u5361 " + (this.level + 1) + " / " + SOKOBAN_LEVELS.length + "   " + SOKOBAN_LEVELS[this.level].name, 56, 220, 264, 35, 16, C.amber);
-          this.text(s.moves + " \u6B65", 330, 220, 94, 35, 17, C.ink, true);
+          this.text("\u5173\u5361 " + (this.level + 1) + " / " + SOKOBAN_LEVELS.length + "   " + SOKOBAN_LEVELS[this.level].name, 56, 220, 264, 35, 18, C.amber);
+          this.text(s.moves + " \u6B65", 330, 220, 94, 35, 20, C.ink, true);
           var cell = Math.min(53, 410 / s.width, 399 / s.height);
           var x0 = (480 - s.width * cell) / 2,
             y0 = 290 + (400 - s.height * cell) / 2;
@@ -746,12 +759,12 @@ System.register("chunks:///_virtual/PrototypeApp.ts", ['./rollupPluginModLoBabel
               if ((x + y) % 3 === 0) this.panel(_px + cell / 2 - 4, _py + 13, 8, 3, C.mint, undefined, 0);
             } else if (s.goals.includes(index)) {
               this.panel(_px + 6, _py + 6, cell - 12, cell - 12, '#1C5B4F', C.mint, 0);
-              this.text('＋', _px + 6, _py + 5, cell - 12, cell - 12, 25, C.mint, true);
+              this.text('＋', _px + 6, _py + 5, cell - 12, cell - 12, 24, C.mint, true);
             }
             if (s.boxes.includes(index)) {
               this.panel(_px + 6, _py + cell - 11, cell - 12, 6, '#142031', undefined, 2);
               this.prop(0, _px - 2, _py - 5, cell + 4);
-              if (s.goals.includes(index)) this.text('✓', _px + cell - 19, _py, 19, 21, 18, C.mint, true);
+              if (s.goals.includes(index)) this.text('★', _px + cell - 19, _py, 19, 21, 18, C.mint, true);
             }
           }
           var px = x0 + s.player % s.width * cell,
@@ -828,9 +841,9 @@ System.register("chunks:///_virtual/PrototypeApp.ts", ['./rollupPluginModLoBabel
         };
         _proto.renderOnet = function renderOnet() {
           var _this7 = this;
-          this.text('连接相同设备。最多拐两次弯，可绕棋盘外侧。', 28, 145, 424, 54, 20, C.muted);
+          this.text('连接相同设备，最多拐两次弯。\n连线可以绕过棋盘外侧。', 28, 145, 424, 54, 20, C.muted);
           this.text("\u5269\u4F59 " + this.onet.remaining / 2 + " \u5BF9", 32, 219, 230, 38, 22, C.mint);
-          this.text('6 × 6 信号矩阵', 277, 222, 172, 30, 16, C.muted, true);
+          this.text('6 × 6 信号矩阵', 277, 222, 172, 30, 18, C.muted, true);
           var cell = 68,
             tile = 63,
             x0 = 37,
@@ -863,7 +876,7 @@ System.register("chunks:///_virtual/PrototypeApp.ts", ['./rollupPluginModLoBabel
             });
             g.stroke();
           }
-          this.text(this.status || '先连接边缘设备，腾出空间。', 32, 710, 416, 54, 19, C.muted, true);
+          this.text(this.status || '先连接边缘设备，腾出空间。', 32, 710, 416, 54, 20, C.muted, true);
           this.button('提示一对', 27, 792, 132, 56, function () {
             var pair = getOnetHint(_this7.onet);
             if (pair) {
@@ -883,7 +896,7 @@ System.register("chunks:///_virtual/PrototypeApp.ts", ['./rollupPluginModLoBabel
           this.button('换个布局', 321, 792, 132, 56, function () {
             return _this7.startGame('onet', true);
           });
-          if (this.onet.remaining === 0) this.result('信号链路已接通', '全部设备完成配对，矩阵清理完毕。', '再玩一局', function () {
+          if (this.onet.remaining === 0) this.result('信号链路已接通', '全部设备完成配对，\n矩阵清理完毕。', '再玩一局', function () {
             return _this7.startGame('onet', true);
           });
         };
@@ -931,10 +944,10 @@ System.register("chunks:///_virtual/PrototypeApp.ts", ['./rollupPluginModLoBabel
         };
         _proto.renderMemory = function renderMemory() {
           var _this9 = this;
-          this.text('先记住位置，再翻开两张相同的设备卡。', 28, 145, 424, 54, 20, C.muted);
+          this.text('先记住设备的位置，\n再翻开两张相同的卡片。', 28, 145, 424, 54, 20, C.muted);
           this.text("\u5DF2\u89E3\u5BC6 " + this.matched.length / 2 + " / " + this.faces.length / 2 + " \u5BF9", 31, 219, 250, 38, 22, C.rose);
-          this.text("\u5C1D\u8BD5 " + this.memoryTurns + " \u6B21", 285, 222, 165, 32, 17, C.muted, true);
-          this.timerLabel = this.text(this.preview > 0 ? "\u8BB0\u4F4F\u56FE\u6848  " + Math.ceil(this.preview) : this.memoryLocked ? '再看一眼，记住它们。' : '轮到你了，选两张卡片。', 30, 267, 420, 40, 19, this.preview > 0 ? C.amber : C.muted, true);
+          this.text("\u5C1D\u8BD5 " + this.memoryTurns + " \u6B21", 285, 222, 165, 32, 20, C.muted, true);
+          this.timerLabel = this.text(this.preview > 0 ? "\u8BB0\u4F4F\u56FE\u6848  " + Math.ceil(this.preview) : this.memoryLocked ? '再看一眼，记住它们。' : '轮到你了，选两张卡片。', 30, 267, 420, 40, 20, this.preview > 0 ? C.amber : C.muted, true);
           var w = 92,
             h = 112,
             gap = 12,
@@ -949,20 +962,20 @@ System.register("chunks:///_virtual/PrototypeApp.ts", ['./rollupPluginModLoBabel
             if (matched) _this9.panel(x + 9, y + 13, w - 18, h - 18, '#17493F', C.mint, 0);
             if (visible) {
               _this9.prop(2 + face, x + 14, y + 10, 64);
-              _this9.text(matched ? '已解密 ✓' : ICONS[face], x + 6, y + 79, w - 12, 26, 19, matched ? C.mint : C.ink, true);
+              _this9.text(matched ? '已解密' : ICONS[face], x + 10, y + 79, w - 20, 26, 18, matched ? C.mint : C.ink, true);
             }
             _this9.listen(node, function () {
               return _this9.selectMemory(index);
             });
           });
-          this.text('错配后会盖回卡片，记住设备的位置。', 30, 729, 420, 38, 19, C.muted, true);
+          this.text('错配后会盖回卡片，记住设备的位置。', 30, 729, 420, 38, 20, C.muted, true);
           this.button('重新记忆', 29, 804, 200, 55, function () {
             return _this9.startGame('memory');
           });
           this.button('换套卡片', 249, 804, 200, 55, function () {
             return _this9.startGame('memory', true);
           }, C.rose);
-          if (this.matched.length === this.faces.length) this.result('芯片解密完成', "\u7528\u4E86 " + this.memoryTurns + " \u6B21\u914D\u5BF9\u5C1D\u8BD5\uFF0C\u89E3\u5F00\u5168\u90E8\u8BBE\u5907\u5361\u3002", '再解密一套', function () {
+          if (this.matched.length === this.faces.length) this.result('芯片解密完成', "\u7528\u4E86 " + this.memoryTurns + " \u6B21\u5C1D\u8BD5\uFF0C\n\u89E3\u5BC6\u5168\u90E8 6 \u5BF9\u82AF\u7247\u3002", '再解密一套', function () {
             return _this9.startGame('memory', true);
           });
         };
@@ -997,7 +1010,7 @@ System.register("chunks:///_virtual/PrototypeApp.ts", ['./rollupPluginModLoBabel
           this.image('ui-panel', 17, 145, 446, 84);
           this.text('看准后落下，叠满 8 层接通信号。', 47, 158, 386, 57, 20, C.ink);
           this.image('ui-panel', 27, 248, 426, 63);
-          this.stackCounter = this.text(this.stack.floors + " / 8 \u5C42", 57, 260, 157, 38, 25, C.ink);
+          this.stackCounter = this.text(this.stack.floors + " / 8 \u5C42", 57, 260, 157, 38, 24, C.ink);
           this.text("\u5B8C\u7F8E " + this.stack.perfects + " \u6B21", 268, 263, 163, 32, 18, C.amber, true);
           this.stackFeedbackLabel = this.text(this.stackFeedback || '看准重合的瞬间', 31, 328, 418, 38, 22, C.ink, true);
           var node = this.make('Tower', 0, 0, 480, 900);
@@ -1017,16 +1030,16 @@ System.register("chunks:///_virtual/PrototypeApp.ts", ['./rollupPluginModLoBabel
             _this11.stackPause = !_this11.stackPause;
             _this11.render();
           });
-          if (this.stack.status === 'won') this.result('信号接通！', "8 \u5C42\u5C0F\u5854\u5B8C\u6210\uFF0C" + this.stack.perfects + " \u6B21\u5B8C\u7F8E\u843D\u4E0B\u3002", '再叠一次', function () {
+          if (this.stack.status === 'won') this.result('信号接通！', "8 \u5C42\u5C0F\u5854\u5B8C\u6210\uFF0C\n" + this.stack.perfects + " \u6B21\u5B8C\u7F8E\u843D\u4E0B\u3002", '再叠一次', function () {
             return _this11.startGame('stack');
           });
-          if (this.stack.status === 'lost') this.result('差一点点！', "\u8FD9\u6B21\u53E0\u5230\u4E86 " + this.stack.floors + " \u5C42\uFF0C\u518D\u8BD5\u4E00\u6B21\u4F1A\u66F4\u7A33\u3002", '再来一次', function () {
+          if (this.stack.status === 'lost') this.result('差一点点！', "\u8FD9\u6B21\u53E0\u5230\u4E86 " + this.stack.floors + " \u5C42\uFF0C\n\u518D\u8BD5\u4E00\u6B21\u4F1A\u66F4\u7A33\u3002", '再来一次', function () {
             return _this11.startGame('stack');
           }, false);
           if (this.stackPause && this.stack.status === 'playing') {
             this.image('ui-panel', 87, 442, 306, 112);
-            this.text('节点已暂停', 113, 462, 254, 40, 27, C.ink, true);
-            this.text('准备好后，点「继续叠塔」。', 115, 503, 250, 31, 17, C.muted, true);
+            this.text('节点已暂停', 113, 462, 254, 40, 24, C.ink, true);
+            this.text('准备好后，点「继续叠塔」。', 115, 503, 250, 31, 18, C.muted, true);
           }
         };
         _proto.drawTower = function drawTower() {
@@ -1097,7 +1110,7 @@ System.register("chunks:///_virtual/PrototypeApp.ts", ['./rollupPluginModLoBabel
           this.listen(shade, function () {});
           this.image('ui-panel', 39, 244, 402, 438);
           this.prop(success ? 10 : 1, 195, 278, 90);
-          this.text(title, 60, 373, 360, 51, 31, success ? C.amber : C.ink, true);
+          this.text(title, 60, 373, 360, 51, 30, success ? C.amber : C.ink, true);
           this.text(description, 65, 435, 350, 59, 20, C.muted, true);
           this.button(action, 72, 515, 336, 56, fn, success ? C.amber : C.mint);
           this.button('回训练场', 145, 594, 190, 50, function () {
