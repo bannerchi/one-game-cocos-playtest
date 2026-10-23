@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <title>黑客训练场 · 四玩法试玩</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#080F18">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="robots" content="noindex,nofollow">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    html, body { overflow: hidden; overscroll-behavior: none; background: #080F18; }
+    body {
+      box-sizing: border-box; height: 100vh; height: 100dvh;
+      padding: env(safe-area-inset-top, 0px) env(safe-area-inset-right, 0px)
+               env(safe-area-inset-bottom, 0px) env(safe-area-inset-left, 0px);
+    }
+    #GameDiv { flex: none; touch-action: none; }
+    #GameCanvas { touch-action: none; }
+  </style>
+</head>
+<body>
+  <div id="GameDiv" cc_exact_fit_screen="false">
+    <div id="Cocos3dGameContainer">
+      <canvas id="GameCanvas" oncontextmenu="event.preventDefault()" tabindex="0" aria-label="黑客训练场，推箱子、连连看、芯片记忆与叠塔"></canvas>
+    </div>
+  </div>
+  <script>
+    // Keep the engine frame inside device cutouts and the browser's changing visible height.
+    function fitGameFrame() {
+      const body = document.body;
+      const style = getComputedStyle(body);
+      const frame = document.getElementById('GameDiv');
+      const width = body.clientWidth - parseFloat(style.paddingLeft) - parseFloat(style.paddingRight);
+      const height = Math.min(body.clientHeight, window.visualViewport?.height || window.innerHeight)
+        - parseFloat(style.paddingTop) - parseFloat(style.paddingBottom);
+      frame.style.width = `${Math.max(1, width)}px`;
+      frame.style.height = `${Math.max(1, height)}px`;
+    }
+    fitGameFrame();
+    window.addEventListener('resize', fitGameFrame);
+    window.visualViewport?.addEventListener('resize', () => {
+      fitGameFrame();
+      window.dispatchEvent(new Event('resize'));
+    });
+  </script>
+  
+
+<!-- Polyfills bundle. -->
+
+<script src="src/polyfills.bundle.js" charset="utf-8"> </script>
+
+
+<!-- SystemJS support. -->
+<script src="src/system.bundle.js" charset="utf-8"> </script>
+
+<!-- Import map -->
+<script src="src/import-map.json" type="systemjs-importmap" charset="utf-8"> </script>
+
+<script>
+    System.import('./index.js').catch(function(err) { console.error(err); })
+</script>
+
+</body>
+</html>
