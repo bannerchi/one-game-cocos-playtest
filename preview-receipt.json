@@ -1,7 +1,7 @@
 {
   "source": "Cocos Creator web-mobile compiled preview",
-  "revision": "typography-2026-10-23",
-  "generated_at_utc": "2026-10-23T05:13:06.205937+00:00",
+  "revision": "compact-type-2026-10-24",
+  "generated_at_utc": "2026-10-24T03:37:35.709739+00:00",
   "runtime_files": 121,
   "excluded_source_maps": 11,
   "files": [
@@ -48,7 +48,7 @@
     {
       "path": "assets/main/index.js",
       "size": 59421,
-      "sha256": "945351ce9fd99f643323f03e9c17568d0ea8d112588cfb4f89ae5e699ae206dd"
+      "sha256": "8f821b4f45bba714b10f9e60f02bcfe5b7ae7b71b52a4eaa44b4c3de03904569"
     },
     {
       "path": "assets/resources/config.json",

@@ -584,7 +584,7 @@ System.register("chunks:///_virtual/PrototypeApp.ts", ['./rollupPluginModLoBabel
           var width = Math.max(w, 70),
             height = Math.max(h, 70);
           var node = this.image(accent ? 'ui-primary' : 'ui-button', x - (width - w) / 2, y - (height - h) / 2, width, height);
-          this.text(s, x + 6, y, w - 12, h, 22, accent || C.ink, true);
+          this.text(s, x + 6, y, w - 12, h, 20, accent || C.ink, true);
           this.listen(node, function () {
             _this3.beep('tap');
             fn();
@@ -632,7 +632,7 @@ System.register("chunks:///_virtual/PrototypeApp.ts", ['./rollupPluginModLoBabel
           this.image('rooftop', 0, -250, 480, 720);
           this.panel(0, 0, 480, 152, C.bg, undefined, 0).addComponent(UIOpacity).opacity = 228;
           this.text('CYBER HEIST   /   SANDBOX 04', 26, 22, 428, 26, 16, C.mint);
-          this.text('黑客训练场', 26, 57, 420, 58, 36);
+          this.text('黑客训练场', 26, 57, 420, 58, 32);
           this.text('潜入节点之前，先热身。', 28, 115, 420, 30, 18, C.muted);
           this.panel(25, 345, 217, 33, C.bg).addComponent(UIOpacity).opacity = 235;
           this.text('● 节点就绪 / 04 任务', 35, 345, 199, 33, 18, C.mint);
@@ -664,7 +664,7 @@ System.register("chunks:///_virtual/PrototypeApp.ts", ['./rollupPluginModLoBabel
             var node = _this4.image('ui-panel', x, y, 210, 159);
             _this4.prop(card.icon, x + 13, y + 10, 65);
             _this4.text("0" + (i + 1), x + 153, y + 17, 39, 32, 20, card.tint, true);
-            _this4.text(TITLES[card.mode], x + 24, y + 80, 162, 32, 24);
+            _this4.text(TITLES[card.mode], x + 24, y + 80, 162, 32, 22);
             _this4.text(card.subtitle, x + 24, y + 115, 162, 28, 18, C.muted);
             _this4.listen(node, function () {
               return _this4.startGame(card.mode);
@@ -734,7 +734,7 @@ System.register("chunks:///_virtual/PrototypeApp.ts", ['./rollupPluginModLoBabel
             _this5.muted = !_this5.muted;
             _this5.render();
           });
-          this.text(TITLES[this.mode], 27, 91, 426, 49, 30);
+          this.text(TITLES[this.mode], 27, 91, 426, 49, 28);
         };
         _proto.renderSokoban = function renderSokoban() {
           var _this6 = this;
@@ -962,7 +962,7 @@ System.register("chunks:///_virtual/PrototypeApp.ts", ['./rollupPluginModLoBabel
             if (matched) _this9.panel(x + 9, y + 13, w - 18, h - 18, '#17493F', C.mint, 0);
             if (visible) {
               _this9.prop(2 + face, x + 14, y + 10, 64);
-              _this9.text(matched ? '已解密' : ICONS[face], x + 10, y + 79, w - 20, 26, 18, matched ? C.mint : C.ink, true);
+              _this9.text(matched ? '已解密' : ICONS[face], x + 10, y + 79, w - 20, 26, 16, matched ? C.mint : C.ink, true);
             }
             _this9.listen(node, function () {
               return _this9.selectMemory(index);
@@ -1110,7 +1110,7 @@ System.register("chunks:///_virtual/PrototypeApp.ts", ['./rollupPluginModLoBabel
           this.listen(shade, function () {});
           this.image('ui-panel', 39, 244, 402, 438);
           this.prop(success ? 10 : 1, 195, 278, 90);
-          this.text(title, 60, 373, 360, 51, 30, success ? C.amber : C.ink, true);
+          this.text(title, 60, 373, 360, 51, 28, success ? C.amber : C.ink, true);
           this.text(description, 65, 435, 350, 59, 20, C.muted, true);
           this.button(action, 72, 515, 336, 56, fn, success ? C.amber : C.mint);
           this.button('回训练场', 145, 594, 190, 50, function () {
