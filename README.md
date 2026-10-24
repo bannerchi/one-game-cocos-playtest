@@ -2,7 +2,7 @@
 
 Compiled static preview of four offline prototypes: Sokoban, Onet, Memory Match and Stack.
 
-Mobile portrait layout with a compact CJK pixel terminal type scale; intended for phone art and touch playtesting.
+English-first interface with nine selectable languages and a CJK pixel terminal font; intended for phone art and touch playtesting.
 
 Font: Hacker Pixel Playtest, a subset of Fusion Pixel 12px Monospaced Simplified Chinese, release 2026.09.01. See [font notices](licenses/FONT-NOTICE.txt) and the accompanying [SIL OFL 1.1](licenses/OFL.txt).
 

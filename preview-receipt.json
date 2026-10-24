@@ -1,7 +1,7 @@
 {
   "source": "Cocos Creator web-mobile compiled preview",
-  "revision": "compact-type-2026-10-24",
-  "generated_at_utc": "2026-10-24T03:37:35.709739+00:00",
+  "revision": "i18n-2026-10-24",
+  "generated_at_utc": "2026-10-24T04:10:06.140961+00:00",
   "runtime_files": 121,
   "excluded_source_maps": 11,
   "files": [
@@ -47,8 +47,8 @@
     },
     {
       "path": "assets/main/index.js",
-      "size": 59421,
-      "sha256": "8f821b4f45bba714b10f9e60f02bcfe5b7ae7b71b52a4eaa44b4c3de03904569"
+      "size": 110687,
+      "sha256": "a8574fc1e551951f285fe2474cb78a67a2b4c3eff9af40b566ff29b8b12bf59a"
     },
     {
       "path": "assets/resources/config.json",
@@ -397,8 +397,8 @@
     },
     {
       "path": "assets/resources/native/66/66ad24c3-d452-48ae-9183-33ec566ea068/hacker-pixel.ttf",
-      "size": 139184,
-      "sha256": "2985561d2bb484289db467316571fc9e86e9c1fc4d856b3a0d17e1f026447012"
+      "size": 202700,
+      "sha256": "75c656751fc69ae4cf78faf4b48051f2782081826cdef5105016f62b4f9f7e95"
     },
     {
       "path": "assets/resources/native/66/66ebd2cb-c1a9-4faa-8fdf-7ccd16e58839.png",
@@ -567,8 +567,8 @@
     },
     {
       "path": "index.html",
-      "size": 2533,
-      "sha256": "a01d009f4e4d35d09f6f559a40e3a721635dba7934654c31ce3d35b04d88088e"
+      "size": 2547,
+      "sha256": "d3f14cb2afc612ae0f2bd9ef93f3d2ced16849f156c7e82008a96dbf6f5f4f5d"
     },
     {
       "path": "index.js",
