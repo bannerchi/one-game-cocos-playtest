@@ -1,4 +1,5 @@
-Hacker Pixel Playtest is a subset of Fusion Pixel 12px Monospaced Simplified Chinese, upstream release 2026.09.01 by TakWolf and contributors. Glyph outlines are unchanged. The subset has a new internal family name. Licensed under SIL Open Font License 1.1; preserve all accompanying notices.
-
-Project: https://github.com/TakWolf/fusion-pixel-font
-Release: https://github.com/TakWolf/fusion-pixel-font/releases/tag/2026.09.01
+Hacker Pixel Playtest — renamed subset of Fusion Pixel 12px Monospaced Simplified Chinese.
+Upstream release: 2026.09.01. License: SIL Open Font License 1.1.
+Source: https://github.com/TakWolf/fusion-pixel-font
+Includes the accompanying Ark Pixel, Cubic 11 and Galmuri notices.
+Current multilingual font SHA-256: 46e498703445638f41b1f6a6bb6ed518e45f77a8a054b3ff12dcd56a812dd766

@@ -1,9 +1,10 @@
 {
-  "source": "Cocos Creator web-mobile compiled preview",
-  "revision": "i18n-2026-10-24",
-  "generated_at_utc": "2026-10-24T04:10:06.140961+00:00",
+  "source": "Cocos Creator 3.8.8 web-mobile compiled preview",
+  "revision": "ten-missions-2026-10-25",
+  "generated_at_utc": "2026-10-25T08:04:59.325715+00:00",
   "runtime_files": 121,
   "excluded_source_maps": 11,
+  "font_sha256": "46e498703445638f41b1f6a6bb6ed518e45f77a8a054b3ff12dcd56a812dd766",
   "files": [
     {
       "path": "application.js",
@@ -47,8 +48,8 @@
     },
     {
       "path": "assets/main/index.js",
-      "size": 110687,
-      "sha256": "a8574fc1e551951f285fe2474cb78a67a2b4c3eff9af40b566ff29b8b12bf59a"
+      "size": 231114,
+      "sha256": "ccbeffdf8e5e961f29f0c6af78a5ec5165ad13c124158e4c3c3a9dfd14332d8d"
     },
     {
       "path": "assets/resources/config.json",
@@ -397,8 +398,8 @@
     },
     {
       "path": "assets/resources/native/66/66ad24c3-d452-48ae-9183-33ec566ea068/hacker-pixel.ttf",
-      "size": 202700,
-      "sha256": "75c656751fc69ae4cf78faf4b48051f2782081826cdef5105016f62b4f9f7e95"
+      "size": 241012,
+      "sha256": "46e498703445638f41b1f6a6bb6ed518e45f77a8a054b3ff12dcd56a812dd766"
     },
     {
       "path": "assets/resources/native/66/66ebd2cb-c1a9-4faa-8fdf-7ccd16e58839.png",
@@ -567,8 +568,8 @@
     },
     {
       "path": "index.html",
-      "size": 2547,
-      "sha256": "d3f14cb2afc612ae0f2bd9ef93f3d2ced16849f156c7e82008a96dbf6f5f4f5d"
+      "size": 2501,
+      "sha256": "1a1348bc81d487b6243e97b86d580871bf8f2b96e7077dc73edd3e44033266a2"
     },
     {
       "path": "index.js",
@@ -577,8 +578,8 @@
     },
     {
       "path": "licenses/FONT-NOTICE.txt",
-      "size": 426,
-      "sha256": "8f5e7712cdc84448cfedd25007fcf002661485ad90cf39b092d4695308630f57"
+      "size": 379,
+      "sha256": "1c38006900e9fd93bfb8d91654ffff5b093c55ee9273441735baccec4685f313"
     },
     {
       "path": "licenses/LICENSES-ark-pixel-OFL.txt",
