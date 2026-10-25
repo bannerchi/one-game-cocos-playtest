@@ -3921,7 +3921,13 @@ System.register("chunks:///_virtual/PrototypeApp.ts", ['./rollupPluginModLoBabel
             resources.load('fonts/hacker-pixel', Font, function (error, font) {
               if (error) reject(error);else {
                 _this2.uiFont = font;
-                resolve();
+                // Creator may report a font timeout before the browser finishes its FontFace request.
+                var family = font.nativeAsset;
+                if (sys.isBrowser && typeof document !== 'undefined' && document.fonts && typeof family === 'string') {
+                  document.fonts.load("20px \"" + family + "\"").then(function () {
+                    return resolve();
+                  }, reject);
+                } else resolve();
               }
             });
           });
